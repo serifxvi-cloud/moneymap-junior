@@ -112,7 +112,7 @@ document.querySelectorAll('.modal-backdrop').forEach(m=>m.addEventListener('clic
 </script>
 </body></html>};let displayCurrency=localStorage.getItem(FX_KEY)||'IDR',fxRates={IDR:1};
 function formatMoney(n){const v=Number(n||0)*(fxRates[displayCurrency]||1);return (currencySymbols[displayCurrency]||displayCurrency+' ')+(displayCurrency==='IDR'?Math.round(v).toLocaleString('id-ID'):v.toLocaleString('en-US',{maximumFractionDigits:2}));}
-async function loadRates(){try{const r=await fetch('https://api.frankfurter.dev/v1/latest?base=IDR');if(!r.ok)throw new Error('rates unavailable');const d=await r.json();fxRates={IDR:1,...d.rates};render();}catch{fxRates={IDR:1};}}
+async function loadRates(){try{const r=await fetch('https://open.er-api.com/v6/latest/IDR');if(!r.ok)throw new Error('rates unavailable');const d=await r.json();fxRates={IDR:1,...d.rates};render();}catch{fxRates={IDR:1};}}
 let state={balance:0,income:0,spent:0,entries:[],goal:null,...JSON.parse(localStorage.getItem(KEY)||'{}')};
 const $=id=>document.getElementById(id),save=()=>localStorage.setItem(KEY,JSON.stringify(state));
 function render(){ $('balance').textContent=fmt(state.balance);$('income').textContent=fmt(state.income);$('spent').textContent=fmt(state.spent);
