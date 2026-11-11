@@ -1,0 +1,16 @@
+{
+  "name": "MoneyMap Junior",
+  "short_name": "MoneyMap Junior",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f7f8ff",
+  "theme_color": "#7768ef",
+  "icons": [
+    {
+      "src": "./junior-mark.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
